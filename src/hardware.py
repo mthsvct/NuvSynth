@@ -11,7 +11,8 @@ class Hardware:
         self.hd = {'min': minHD, 'max': maxHD}
     
     def __str__(self) -> str:
-        return f'RAM: {self.ram[0]}GB\nCPU: {self.cpu[0]}GHz\nHD: {self.hd[0]}GB'
+        return (f'RAM: {self.ram[0]}GB\nCPU: {self.cpu[0]}GHz\nHD: {self.hd[0]}GB')
 
-
+    def imprimirHard(self):
+        print(f"Oi Teste {self.ram['min']}")
 

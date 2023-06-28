@@ -10,7 +10,7 @@ class Qos:
     def __str__(self) -> str:
         return f'Disponibilidade: {self.disponibilidade[0]}%\nTempo de Resposta: {self.tempo[0]}ms\nCusto: R${self.custo[0]}'
 
-    def impriQos(self):
+    def imprimirQoS(self):
         print(f"Oi Teste {self.disponibilidade['min']}")
 
 # Compare this snippet from src/gerador.py:
