@@ -5,13 +5,13 @@ class Hardware:
 
     # Perguntar a professora sobre o tipo de HD
 
-    def __init__(self, minRAM=None, maxRAM=None, minCPU=None, maxCPU=None, minHD=None, maxHD=None) -> None:
+    def __init__(self, minRAM=None, maxRAM=None, cpus=None, minHD=None, maxHD=None) -> None:
         self.ram = {'min': minRAM, 'max': maxRAM}
-        self.cpu = {'min': minCPU, 'max': maxCPU}
         self.hd = {'min': minHD, 'max': maxHD}
-    
+        self.cpus = cpus
+
     def __str__(self) -> str:
-        return (f'RAM: {self.ram[0]}GB\nCPU: {self.cpu[0]}GHz\nHD: {self.hd[0]}GB')
+        return f'{self.ram}.\n{self.hd}.\n{self.cpus}.'
 
     def imprimirHard(self):
         print(f"Oi Teste {self.ram['min']}")

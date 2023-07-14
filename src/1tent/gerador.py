@@ -43,6 +43,7 @@ class Gerador:
     def run(self): 
         self.selClasses()
         self.gerarProviders()
+        self.gerar()
     
     def gerarProviders(self):
         self.providers = [self.gerarProv() for _ in range(self.numProviders)]
@@ -147,9 +148,11 @@ class Gerador:
                 self.classesSel.append(aux)
         print(self.classesSel)
 
-    
-        
-    
+    def gerar(self):
+        for i in range(self.numProviders):
+            novoProv = Provedor()
+            novoProv.gerar(self.classesSel)
+            self.providers.append(novoProv)
 
 
 
