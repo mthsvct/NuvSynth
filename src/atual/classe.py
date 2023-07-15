@@ -4,30 +4,30 @@ from random import choice, randint, uniform
 
 class Classe(Limites):
 
-    def __init__(self, categoria:str, qntSrvs:int, cpus: list, 
-                minRAM:int, maxRAM:int, 
-                minHD:int, maxHD:int, 
-                minDisp:float = 0, maxDisp:float = 100, 
-                minTempRes:float = 0, maxTempRes:float = 1, 
-                minCusto:float=0, maxCusto:float=100):
+    def __init__(self, categoria:str, qntSrvs:int, cpus:list, 
+            ram:list,
+            minHD:int, maxHD:int,
+            disponibilidade:float=0,
+            tempResposta:float=1,
+            custo:float=100
+        ) -> None:
         self.qntSrvs = qntSrvs
         self.categoria = categoria
         self.servicos = []
-        super().__init__(cpus, minRAM, maxRAM, minHD, maxHD, minDisp, maxDisp, minTempRes, maxTempRes, minCusto, maxCusto)
+        super().__init__(cpus, ram, minHD, maxHD, disponibilidade, tempResposta, custo)
 
     def __str__(self):
         return f"Categoria: {self.categoria}\nServicos: {self.servicos}\n{super().__str__()}"
-    
 
     def newSrv(self, indice):
         return Servico(
             name=f"Service-{self.categoria}-{indice}",
             cpu=choice(self.cpus),
-            ram=randint(self.ram['min'], self.ram['max']),
+            ram=choice(self.ram),
             hd=randint(self.hd['min'], self.hd['max']),
-            disp=uniform(self.disponibilidade['min'], self.disponibilidade['max']),
-            tempRes=uniform(self.tempoResposta['min'], self.tempoResposta['max']),
-            custo=uniform(self.custo['min'], self.custo['max'])
+            disponibilidade=uniform(self.disponibilidade, 100.0),
+            tempoResposta=uniform(0.0, self.tempoResposta),
+            custo=uniform(0.0, self.custo)
         )
 
 
@@ -38,5 +38,5 @@ class Classe(Limites):
         return {
             "categoria": self.categoria,
             "servicos": [s.dicio() for s in self.servicos],
-            "limites": super().dicio()
+            # "limites": super().dicio()
         }

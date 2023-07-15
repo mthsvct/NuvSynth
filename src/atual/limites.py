@@ -3,18 +3,19 @@
 class Limites:
 
     def __init__(self, 
-                cpus:list, 
-                minRAM:int, maxRAM:int,
-                minHD:int, maxHD:int,
-                minDisp:float=0, maxDisp:float=100,
-                minTempRes:float=0, maxTempRes:float=1,
-                minCusto:float=0, maxCusto:float=100):
+            cpus:list, 
+            ram:list,
+            minHD:int, maxHD:int,
+            disponibilidade:float=0,
+            tempResposta:float=1,
+            custo:float=100
+        ) -> None:
         self.cpus = cpus
-        self.ram = {"min": minRAM, "max": maxRAM}
+        self.ram = ram
         self.hd = {"min": minHD, "max": maxHD}
-        self.disponibilidade = {"min": minDisp, "max": maxDisp}
-        self.tempoResposta = {"min": minTempRes, "max": maxTempRes}
-        self.custo = {"min": minCusto, "max": maxCusto}
+        self.disponibilidade = disponibilidade      # Disponibilidade Mínima
+        self.tempoResposta = tempResposta           # Tempo de Resposta Máximo
+        self.custo = custo                          # Custo Máximo
 
     def __str__(self):
         return f"CPUs: {self.cpus}\nRAM: {self.ram}\nHD: {self.hd}\nDisponibilidade: {self.disponibilidade}\nTempo de Resposta: {self.tempoResposta}\nCusto: {self.custo}"
