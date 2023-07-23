@@ -11,7 +11,7 @@ class Limites:
             custo:float=100
         ) -> None:
         self.cpus = cpus
-        self.ram = ram
+        self.ram = sorted(ram)
         self.hd = {"min": minHD, "max": maxHD}
         self.disponibilidade = disponibilidade      # Disponibilidade Mínima
         self.tempoResposta = tempResposta           # Tempo de Resposta Máximo
