@@ -100,7 +100,7 @@ class Classe(Limites):
 
         # Adiciona primeira geração a lista de populações
         self.geracoes['populacoes'].append(self.servicos)
-        print("taxas: ", [x.taxa for x in self.servicos])
+        # print("taxas: ", [x.taxa for x in self.servicos])
         
         g = 1
         melhores = []
@@ -125,10 +125,11 @@ class Classe(Limites):
             
             # print(g, "taxas: ", [round(x.taxa, 2) for x in self.servicos])
             g += 1
-        print("melhores: ", [x.taxa for x in melhores])
+        # print("melhores: ", [x.taxa for x in melhores])
         if len(self.servicos) > self.qntSrvs: self.servicos.pop()
         self.servicos = sorted(self.servicos, key=lambda x: x.taxa, reverse=True)
-        print("Servicos: ", [x.taxa for x in self.servicos])
+        # print("Servicos: ", [x.taxa for x in self.servicos])
+        # print()
             
 
     def montaRanking(self):
