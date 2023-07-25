@@ -43,8 +43,8 @@ class Classe(Limites):
         # Retorna um dicionário com os dados da classe
         return {
             "categoria": self.categoria,
-            "servicos": [s.dicio() for s in self.servicos],
-            # "limites": super().dicio()
+            "servicos": [ s.dicio() for s in self.servicos ],
+            "limites": super().dicio()
         }
 
     def newSrv(self, indice):
