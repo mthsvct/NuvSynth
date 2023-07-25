@@ -44,13 +44,12 @@ class Classe(Limites):
         return {
             "categoria": self.categoria,
             "servicos": [ s.dicio() for s in self.servicos ],
-            "limites": super().dicio()
+            # "limites": super().dicio()
         }
 
     def newSrv(self, indice):
         # Cria-se um um novo serviço com base nos limites estabelecidos para a classe
         srv = Servico(
-            name=f"Service-{self.categoria}-{indice}",
             cpu=choice(self.cpus),
             ram=choice(self.ram),
             hd=randint(self.hd['min'], self.hd['max']),
@@ -66,25 +65,12 @@ class Classe(Limites):
         # O calculo da porcentagem é feito com base na quantidade de atributos iguais do serviço com o modelo
         porc = 0
         aum = 100 / len(self.atrs)
-
-        if self.modelo.cpu == srv.cpu:
-            porc += aum
-
-        if self.modelo.ram == srv.ram: 
-            porc += aum
-
-        if (srv.hd > self.modelo.hd - 10 and srv.hd < self.modelo.hd + 10): 
-            porc += aum
-
-        if (srv.disponibilidade > self.modelo.disponibilidade - 7 and srv.disponibilidade < self.modelo.disponibilidade + 7): 
-            porc += aum
-
-        if (srv.tempoResposta > self.modelo.tempoResposta - 0.7 and srv.tempoResposta < self.modelo.tempoResposta + 0.7 ): 
-            porc += aum
-
-        if (srv.custo > self.modelo.custo - 7 and srv.custo < self.modelo.custo + 7): 
-            porc += aum
-
+        if self.modelo.cpu == srv.cpu: porc += aum
+        if self.modelo.ram == srv.ram: porc += aum
+        if (srv.hd > self.modelo.hd - 10 and srv.hd < self.modelo.hd + 10): porc += aum
+        if (srv.disponibilidade > self.modelo.disponibilidade - 7 and srv.disponibilidade < self.modelo.disponibilidade + 7): porc += aum
+        if (srv.tempoResposta > self.modelo.tempoResposta - 0.7 and srv.tempoResposta < self.modelo.tempoResposta + 0.7 ): porc += aum
+        if (srv.custo > self.modelo.custo - 7 and srv.custo < self.modelo.custo + 7): porc += aum
         return porc
     
     # Compara o serviço com o modelo. Retorna True se for semelhante (porcentagem do novo serviço é maior ou igual a 80%).
@@ -162,6 +148,8 @@ class Classe(Limites):
         sel = []
         for i in self.casais:
             # Crio dois serviços a partir dos atributos dos serviços do casal. Vou alternando os atributos de cada serviço para efetuar o cruzamento.
+            print("---------:> i[0] e i[1]", i[0], i[1])
+            
             nv1 = Servico(
                 name=f"Service-{self.categoria}",
                 cpu= self.servicos[i[0]].cpu,

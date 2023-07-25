@@ -4,15 +4,15 @@ from qos import QoS
 class Servico(Hardware, QoS):
     total = 0
     def __init__(self,
-                name:str,
                 cpu, ram, hd,
                 disponibilidade,
                 tempoResposta,
                 custo,
+                name:str='',
                 taxa=0):
         self.id = Servico.total
         Servico.total += 1
-        self.name = name
+        self.name = name if name != None else f"Servico - {self.id}"
         self.taxa = taxa
         Hardware.__init__(self, cpu, ram, hd)
         QoS.__init__(self, disponibilidade, tempoResposta, custo)

@@ -6,17 +6,12 @@ from random import choice, randint, uniform
 
 
 CLASSES = [
-    'Computacao', 
-    'Armazenamento',
-    'Memoria', 
-    'AI + Machine Learning',
-    'Segurança', 
+    'Computacao', 'Armazenamento','Memoria', 
+    'AI + Machine Learning', 'Segurança', 
     'Análise de Dados e Estatíticas',
-    'Internet das Coisas', 
-    'Redes',
-    'Big Data', 
-    'Mídia' 
-    ]
+    'Internet das Coisas', 'Redes', 
+    'Big Data',  'Mídia' 
+    ] # len(classes) == 10
 
 CPUS = [
     'Intel Core 3', 
@@ -31,41 +26,56 @@ CPUS = [
     'Apple M1', 
     'AMD Threadripper',
     'IBM POWER9' 
-    ]
+    ] # len(cpus) == 12
 
-RAMS = [ (2**x) for x in range(1, 11) ]
+RAMS = [ (2**x) for x in range(1, 11) ] # len(rams) == 10
 
 
-class Dataset:
-
-    def __init__(self, 
-            name:str='', 
-            qntPrvd:int=5, 
-            clsSel:list=[]
-        ) -> None:
-
-        self.name = name
-        self.qntPrvd = qntPrvd
-        self.clsSel = clsSel
+# class Dataset:
+#     def __init__(self, 
+#             name:str='', 
+#             qntPrvd:int=5, 
+#             clsSel:list=[]) -> None:
+#         self.name = name
+#         self.qntPrvd = qntPrvd
+#         self.clsSel = clsSel
+def sequencia(dados):
+    qntPrv = dados.qnts.prvs
+    qntSer = dados.qnts.srvs
+    classes = []
         
+    for i in dados.classes:
+        novo = Classe(
+            categoria=CLASSES[ i['categoria'] ],
+            qntSrvs=dados.qnts.srvs,
+            cpus=[ CPUS[x] for x in i['cpus'] ],
+            ram=[ RAMS[x] for x in i['ram'] ],
+            minHD=i['hd']['min'], 
+            maxHD=i['hd']['max'],
+            disponibilidade=i['disponibilidade'],
+            tempResposta=i['tempoResposta'],
+            custo=i['custo']
+        )
+        classes.append(novo)
+    
+    return run(classes, qntPrv, qntSer)
 
 
 
-
-
-def gerar(clsSel:list, qntPrv:int=5, qntSer:int=10):
+def run(clsSel:list, qntPrv:int=5, qntSer:int=10):
     # Esta Função é apenas para testes.
     prvs = [ Provedor() for _ in range(qntPrv) ]
     
-    for i in prvs: i.classes = [ copy.deepcopy(x) for x in clsSel ]
+    for i in prvs: 
+        i.classes = [ copy.deepcopy(x) for x in clsSel ]
     
     for i in prvs:
         for j in i.classes:
             j.qntSrvs = qntSer
     
-    for i in prvs: #.......... Para cada provedor
-        for j in i.classes: #. Para cada classe que está no provedor
-            j.gerar() #....... Gera os servicos da classe
+    for i in prvs: #............ Para cada provedor
+        for j in i.classes: #... Para cada classe que está no provedor
+            j.gerar() #......... Gera os servicos da classe
     
     return prvs
 
