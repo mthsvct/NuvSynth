@@ -1,0 +1,39 @@
+.rodape {
+
+    & {
+        width: 100%;
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+
+    &, div {
+        background-color: var(--black);
+    }
+    
+    &, div {
+        display: flex;
+    }
+
+    & {
+        justify-content: center;
+        align-items: center;
+    }
+
+    & {
+        flex-direction: column;
+    }
+
+   
+
+    .icone {
+        font-size: 30px;
+        margin-left: 10px;
+        margin-right: 10px;
+        margin-top: 10px;
+
+        &:hover {
+            color: var(--blue);
+
+        }
+    }
+}

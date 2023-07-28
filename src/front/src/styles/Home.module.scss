@@ -1,0 +1,27 @@
+.conteudo {
+
+    width: 100%;
+    padding-top: 50px;
+
+    .titulo, .corpo {
+        display: flex;
+    }
+
+    .titulo, .corpo {
+        align-items: center;
+    }
+
+    .titulo, .corpo {
+        justify-content: center;
+    }
+
+    .titulo {
+        margin-bottom: 100px;
+    }
+
+    .corpo {
+        flex-direction: column;
+    }
+
+
+}

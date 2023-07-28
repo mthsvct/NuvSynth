@@ -1,0 +1,28 @@
+.topicos {
+    
+    width: 100%;
+    justify-content: space-around;
+
+    &, .topico {
+        display: flex;
+    }
+
+    .topico {
+        flex-direction: column;
+        width: 25%;
+
+        h3 {
+            font-weight: 400;
+            font-size: 14pt;
+        }
+
+        p {
+            text-align: justify;
+            font-size: 10pt;
+            color: var(--opa60);
+        }
+
+    }
+
+
+}

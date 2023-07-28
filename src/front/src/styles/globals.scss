@@ -1,0 +1,48 @@
+:root {
+	--blue: #305D7A;
+    --white: #F1F1F1;
+    --black: #1B1B1B;
+
+    --b1: 1px solid var(--white);
+    --b2: 1px solid red;
+    --b3: 1px solid yellow;
+
+
+    --opaMIN: rgba(241, 241, 241, 0.3);
+    --opaMAX: rgba(241, 241, 241, 1);
+    --opa50: rgba(241, 241, 241, 0.5);
+    --opa60: rgba(241, 241, 241, 0.6);
+    --opa75: rgba(241, 241, 241, 0.75);
+
+}
+
+* {  
+    margin: 0;
+    padding: 0;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 300;
+    color: var(--white);
+}
+
+body {
+    background-color: var(--blue);
+}
+
+
+a {
+    text-decoration: none;
+    color: var(--white);
+}
+
+ul {
+    list-style: none;
+}
+
+
+main {
+    display: flex;
+}
+
+
+
+
