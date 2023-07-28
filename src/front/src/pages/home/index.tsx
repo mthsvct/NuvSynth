@@ -42,23 +42,24 @@ export default function Inicio() {
 				/>
 		</div>
 		
-		<form>
-			
-			<label htmlFor="name">
-				<h4>Mas antes, dê um nome ao novo dataset:</h4>
-			</label>
+		<form className={sty2.formulario}>
 
+			
 			<BsDatabaseFillAdd className={sty2.icon} />
 
-			<p>{nome}</p>
+			<div className={sty2.entrada}>
+				<label htmlFor="name">
+					<h4>Mas antes, dê um nome ao novo dataset:</h4>
+				</label>
 
-			<Input
-				id="name"
-				type="text"
-				placeholder="Nome do dataset"
-				value={nome || ''}
-				onChange={(e) => setNome(e.target.value)}
-			/>
+				<Input
+					id="name"
+					type="text"
+					placeholder="Nome do dataset"
+					value={nome || ''}
+					onChange={(e) => setNome(e.target.value)}
+				/>
+			</div>
 		</form>
 
 		</>

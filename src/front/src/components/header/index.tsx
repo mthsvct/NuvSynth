@@ -7,6 +7,9 @@ export function Header({ indice } : any){
 
     return (
         <header className={styles.Header}>
+
+            <div className={styles.conteudo}>
+            
             <div className={styles.logo}>
                 <Logo />
             </div>
@@ -17,7 +20,12 @@ export function Header({ indice } : any){
                             (item, index) => (
                                 <a 
                                     key={index}
-                                    href={`${item.toLowerCase()}/`} 
+                                    href={
+                                        index === 0 ? 
+                                            "/"
+                                        :
+                                            `${item.toLowerCase()}/`
+                                    } 
                                     className={
                                         index === indice ? 
                                             styles.activate 
@@ -31,6 +39,8 @@ export function Header({ indice } : any){
                     }
                 </ul>
             </nav>
+            
+            </div>
         </header>
     )
 }

@@ -18,7 +18,7 @@ export default function Home() {
 				
 				<div className={styles.conteudo}>
 					<div className={styles.titulo}>
-						<Logo />	
+						<Logo tamanho={3} />	
 					</div>
 					<div className={styles.corpo}>
 						<Inicio />
