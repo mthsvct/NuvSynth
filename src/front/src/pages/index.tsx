@@ -7,21 +7,43 @@ import { Header } from '@/components/header'
 import { Footer } from '@/components/footer'
 import Inicio from './home'
 import Logo from '@/components/logo'
+import { useState } from 'react'
+import Provedores from './provedores'
+
 
 const inter = Inter({ subsets: ['latin'] })
 
+function Titulo({op}: {op: number}){ return ["NuvSynth", "Provedores", "Outros"][op] }
+
+
 export default function Home() {
+
+	const [nome, setNome] = useState('')
+	const [op, setOp] = useState(0)
+	const [qntPrvs, setQntPrvs] = useState(1)
+
+	console.log(nome);
+
+
 	return (
 		<>
 			<main>
-                <Header indice={0} />
+                <Header op={op} setOp={setOp} />
 				
 				<div className={styles.conteudo}>
 					<div className={styles.titulo}>
-						<Logo tamanho={3} />	
+						<Logo texto={Titulo({op})} tamanho={3} />
 					</div>
+					
 					<div className={styles.corpo}>
-						<Inicio />
+						{
+							op == 0 ? 
+								<Inicio nome={nome} setNome={setNome}/>
+							: 
+								op == 1 ? <Provedores qntPrvs={qntPrvs} setQntPrvs={setQntPrvs} />
+							: 
+								<h1>Outros</h1>
+						}	
 					</div>
 				</div>
             

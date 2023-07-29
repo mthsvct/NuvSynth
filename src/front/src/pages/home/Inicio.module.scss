@@ -9,19 +9,19 @@
 
     .topico {
         flex-direction: column;
-        width: 25%;
-        margin-left: 30px;
-        margin-right: 30px;
+        width: 30%;
+        margin-left: 20px;
+        margin-right: 20px;
 
         h3 {
             font-weight: 400;
-            font-size: 14pt;
-            margin-bottom: 5px;
+            font-size: 20pt;
+            margin-bottom: 3px;
         }
 
         p {
             text-align: justify;
-            font-size: 11pt;
+            font-size: 14pt;
             color: var(--opa60);
         }
 
@@ -29,27 +29,60 @@
 }
 
 .formulario {
-    display: flex;
     width: 100%;
-    justify-content: center;
     align-items: center;
-    padding-top: 100px;
-    padding-bottom: 100px;
+    padding-top: 70px;
+    padding-bottom: 70px;
 
+    &, .infosEntrada {
+        display: flex;
+    }
+
+    &, .infosEntrada {
+        align-items: center;
+    }
+
+
+    &, .infosEntrada {
+        width: 100%;
+    }
+
+    &, .infosEntrada {
+        justify-content: center;
+    }
+
+    & {
+        flex-direction: column;
+    }
+
+    // .infosEntrada {
+    //     border: var(--b1);
+    // }
 
     .icon {
         font-size: 3rem;
         margin-right: 10px;
-        // fill: var(--opa60);
     }
 
-    .entrada {
-        label {
-            font-size: 1rem;
-        }
+    .infosEntrada {
 
-        input {
-            width: 125%;
+
+    
+        .entrada {
+            label {
+                font-size: 1rem;
+            }
+    
+            input {
+                width: 125%;
+            }
         }
     }
+
+    .botoes {
+        margin-top: 50px;
+        margin-bottom: 50px;
+    }
+
+    
 }

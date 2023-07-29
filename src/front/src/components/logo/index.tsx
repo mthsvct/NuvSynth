@@ -1,13 +1,13 @@
 import styles from './styles.module.scss'
 
-export default function Logo({tamanho=2.1}) {
+export default function Logo({texto="NuvSynth", tamanho=2.1}: {texto?: string, tamanho?: number}) {
 
     return (
         <h1 
             className={styles.logo}
             style={{fontSize: `${tamanho}rem`}}
         >
-            NuvSynth</h1>
+            {texto}</h1>
     )
 
 

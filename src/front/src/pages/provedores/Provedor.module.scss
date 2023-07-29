@@ -1,0 +1,32 @@
+
+
+.formulario {
+    width: 100%;
+    // border: var(--b1);
+    
+    
+    
+    flex-direction: column;
+
+    &, .entrada {
+        display: flex;
+    } 
+    
+    &, .entrada {
+        justify-content: center;
+        align-items: center;
+    }
+
+    .entrada {
+        width: 100%;
+    }
+
+    .deslize {
+        margin-right: 10px;
+        width: 300px;
+        height: 1px;
+    }
+
+
+
+}

@@ -8,6 +8,8 @@ import { Input } from "@/components/input"
 import { useState } from "react"
 
 import { BsDatabaseFillAdd } from "react-icons/bs"
+import { Button } from "@/components/button"
+
 
 function Topico(props: { titulo: string, conteudo: string }) {
 	return (
@@ -19,9 +21,9 @@ function Topico(props: { titulo: string, conteudo: string }) {
 }
 
 
-export default function Inicio() {
+export default function Inicio({nome, setNome}:{nome:string, setNome:Function}) {
 
-	const [nome, setNome] = useState('')
+
 
     return (
 		<>
@@ -44,22 +46,32 @@ export default function Inicio() {
 		
 		<form className={sty2.formulario}>
 
-			
-			<BsDatabaseFillAdd className={sty2.icon} />
+			<div className={sty2.infosEntrada}>
+				<BsDatabaseFillAdd className={sty2.icon} />
 
-			<div className={sty2.entrada}>
-				<label htmlFor="name">
-					<h4>Mas antes, dê um nome ao novo dataset:</h4>
-				</label>
+				<div className={sty2.entrada}>
+					<label htmlFor="name"><h4>Mas antes, dê um nome ao novo dataset:</h4></label>
 
-				<Input
-					id="name"
-					type="text"
-					placeholder="Nome do dataset"
-					value={nome || ''}
-					onChange={(e) => setNome(e.target.value)}
-				/>
+					<Input
+						id="name"
+						type="text"
+						placeholder="Nome do dataset"
+						value={nome || ''}
+						onChange={(e) => setNome(e.target.value)}
+					/>
+				</div>
 			</div>
+
+			<div className={sty2.botoes}>
+				<Button type="submit" onClick={(e) => {
+					e.preventDefault()
+					console.log(nome)
+				}}
+				> {'>'} Próximo 
+				</Button>
+
+			</div>
+
 		</form>
 
 		</>

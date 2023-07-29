@@ -13,7 +13,7 @@ export function Footer(){
         <footer className={styles.rodape}>
 
             <div className={styles.logo}>
-                <Logo />
+                <Logo tamanho={2.7} />
             </div>
 
             <div className={styles.icones}>

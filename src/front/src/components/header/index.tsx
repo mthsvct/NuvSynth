@@ -1,7 +1,7 @@
 import Logo from '../logo'
 import styles from './styles.module.scss'
 
-export function Header({ indice } : any){
+export function Header({ op, setOp } : { op: number, setOp: Function }){
     const lista = ["Home", "Provedores", "Classes", "Gerar", "Download"]
 
 
@@ -20,14 +20,15 @@ export function Header({ indice } : any){
                             (item, index) => (
                                 <a 
                                     key={index}
-                                    href={
-                                        index === 0 ? 
-                                            "/"
-                                        :
-                                            `${item.toLowerCase()}/`
-                                    } 
+                                    // href={
+                                    //     index === 0 ? 
+                                    //         "/"
+                                    //     :
+                                    //         `${item.toLowerCase()}/`
+                                    // } 
+                                    onClick={() => setOp(index)}
                                     className={
-                                        index === indice ? 
+                                        index === op ? 
                                             styles.activate 
                                         : 
                                             styles.normal

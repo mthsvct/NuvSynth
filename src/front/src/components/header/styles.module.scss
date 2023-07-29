@@ -38,16 +38,14 @@
     }
 
     ul a {
-        padding-top: 15px;
-        padding-bottom: 15px;
+        padding-top: 25px;
+        padding-bottom: 25px;
         margin-top: 10px;
         margin-bottom: 10px;
-        font-size: 1.3rem;
+        font-size: 1.7rem;
         cursor: pointer;
-        font-weight: 400;
-        
-        transition: ease-in 0.1s;
 
+        transition: cubic-bezier(0.165, 0.84, 0.44, 1) 0.4s;
 
         &:hover {
             background-color: var(--white);
