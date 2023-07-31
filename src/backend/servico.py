@@ -19,5 +19,10 @@ class Servico(Hardware, QoS):
 
     def __str__(self): return f"Nome: {self.name}\n{Hardware.__str__(self)}\n{QoS.__str__(self)}"
 
-    def dicio(self): return { "name": self.name, "hardware": Hardware.dicio(self), "qos": QoS.dicio(self) }
+    def dicio(self): return { 
+        "id": self.id,
+        "name": self.name, 
+        "hardware": Hardware.dicio(self), 
+        "qos": QoS.dicio(self) 
+        }
 

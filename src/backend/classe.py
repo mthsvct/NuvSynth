@@ -105,28 +105,35 @@ class Classe(Limites):
                 # self.servicos[-1] = melhores[0]
                 # self.servicos = sorted(self.servicos, key=lambda x: x.taxa, reverse=True)
             
-
             self.geracoes['populacoes'].append(self.servicos) # Adiciona a nova população a lista de populações
-            self.geracoes['qntGer'] += 1 # Incrementa a quantidade de gerações
-            
-            # print(g, "taxas: ", [round(x.taxa, 2) for x in self.servicos])
-            g += 1
-        # print("melhores: ", [x.taxa for x in melhores])
-        if len(self.servicos) > self.qntSrvs: self.servicos.pop()
+            self.geracoes['qntGer'] += 1 # Incrementa a quantidade de gerações    
+            g += 1 # Contador de gerações é incrementado
+
+        # print(self.um)
+        
+        if len(self.servicos) > self.qntSrvs: 
+            self.servicos.pop()
+        
         self.servicos = sorted(self.servicos, key=lambda x: x.taxa, reverse=True)
-        # print("Servicos: ", [x.taxa for x in self.servicos])
-        # print()
+        
             
 
     def montaRanking(self):
         # Monta um ranking baseados nas taxas dos serviços. Onde o primeiro serviço é o que tem a maior taxa.
         p = [50, 30, 10, 5, 1, 1, 1, 1, 1]
+        
+        if len(p) > self.qntSrvs:
+            p = p[:self.qntSrvs]
+
+        print("p: ", p)
         ranking = []
         index = 0
+
         for i in p:
             for _ in range(i):
                 ranking.append(index)
             index += 1
+        
         return ranking
     
     def selecao(self):
@@ -146,9 +153,13 @@ class Classe(Limites):
     def crossover(self):
         # Pega o casal e realiza o cruzamento dos atributos.
         sel = []
+
+        # print(self.um, self.qntSrvs)
+
         for i in self.casais:
             # Crio dois serviços a partir dos atributos dos serviços do casal. Vou alternando os atributos de cada serviço para efetuar o cruzamento.
-            print("---------:> i[0] e i[1]", i[0], i[1])
+            # print("---------:> i[0] e i[1]", i[0], i[1])
+
             
             nv1 = Servico(
                 name=f"Service-{self.categoria}",

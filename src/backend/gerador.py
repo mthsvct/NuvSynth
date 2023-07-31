@@ -42,27 +42,35 @@ RAMS = [ (2**x) for x in range(1, 11) ] # len(rams) == 10
 def sequencia(dados):
     qntPrv = dados.qnts.prvs
     qntSer = dados.qnts.srvs
+
+    um = None
+    
+    if qntSer == 1:
+        qntSer = 2
+        um = True
+
+    print(um, qntSer)
+    
     classes = []
         
     for i in dados.classes:
         novo = Classe(
             categoria=CLASSES[ i['categoria'] ],
-            qntSrvs=dados.qnts.srvs,
+            qntSrvs=qntSer,
             cpus=[ CPUS[x] for x in i['cpus'] ],
             ram=[ RAMS[x] for x in i['ram'] ],
-            minHD=i['hd']['min'], 
-            maxHD=i['hd']['max'],
+            minHD=i['hd']['min'], maxHD=i['hd']['max'],
             disponibilidade=i['disponibilidade'],
             tempResposta=i['tempoResposta'],
             custo=i['custo']
         )
         classes.append(novo)
     
-    return run(classes, qntPrv, qntSer)
+    return run(classes, qntPrv, qntSer, um)
 
 
 
-def run(clsSel:list, qntPrv:int=5, qntSer:int=10):
+def run(clsSel:list, qntPrv:int=5, qntSer:int=10, um:bool=False):
     # Esta Função é apenas para testes.
     prvs = [ Provedor() for _ in range(qntPrv) ]
     
@@ -77,6 +85,12 @@ def run(clsSel:list, qntPrv:int=5, qntSer:int=10):
         for j in i.classes: #... Para cada classe que está no provedor
             j.gerar() #......... Gera os servicos da classe
     
+    if um:
+        # Dá pop na lista de serviços de cada classe dos provedores
+        for i in prvs:
+            for j in i.classes:
+                j.servicos.pop()
+
     return prvs
 
 

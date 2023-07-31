@@ -14,6 +14,7 @@ export default function Provedores({qntPrvs, setQntPrvs}:{qntPrvs: number, setQn
             </Head>
 
             <form className={styles.formulario}>
+                
                 <label htmlFor="qntPrvs">
                     Primeiro, defina a quantidade de provedores a serem gerados no simulador:
                 </label>
