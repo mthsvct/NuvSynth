@@ -3,7 +3,7 @@ import { Header } from "@/components/header";
 import Head from "next/head";
 import { Input } from "@/components/input";
 import styles from "./Provedor.module.scss"
-import { Button } from "@/components/button";
+import { Button, ProxVoltar } from "@/components/button";
 
 
 
@@ -39,10 +39,7 @@ export default function Provedores({qntPrvs, setQntPrvs, op, setOp}:{qntPrvs: nu
 
                 </div>
 
-                <div className={styles.botoes}>
-                    <Button onClick={() => {setOp(op - 1)}} > Voltar {'<'} </Button>
-                    <Button onClick={() => {setOp(op + 1)}} > {'>'} Próximo </Button>
-                </div>
+                <ProxVoltar op={op} setOp={setOp} />
 
             </form>
         </>

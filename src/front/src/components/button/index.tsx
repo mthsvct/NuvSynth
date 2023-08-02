@@ -23,7 +23,15 @@ export function Button({loading, children, ...rest}: ButtonProps){
             }            
         </button>
     )
-    
+}
+
+export function ProxVoltar({op, setOp}:{op: number, setOp: Function}){
+    return (
+        <div className={styles.botoes}>
+            <Button onClick={() => {setOp(op - 1)}} > Voltar {'<'} </Button>
+            <Button onClick={() => {setOp(op + 1)}} > {'>'} Próximo </Button>
+        </div>
+    )
 }
 
 
