@@ -1,7 +1,8 @@
 .topicos {
     
-    width: 100%;
+    width: 90%;
     justify-content: center;
+    // border: var(--b1);
     
     &, .topico {
         display: flex;
@@ -80,9 +81,23 @@
     }
 
     .botoes {
-        margin-top: 50px;
-        margin-bottom: 50px;
-    }
+        margin-top: 100px;
+        margin-bottom: 100px;
+    }   
+}
 
-    
+
+// Fazer o negocio responsivo
+@media (max-width: 1300px) {
+    .topicos {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        .topico {
+            width: 90%;
+            text-align: justify;
+            margin: 10px 0px;
+        }
+
+    }
 }

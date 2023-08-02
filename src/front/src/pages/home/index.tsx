@@ -5,7 +5,8 @@ import styles from "@/styles/Home.module.scss"
 import Head from "next/head"
 import sty2 from "./Inicio.module.scss"
 import { Input } from "@/components/input"
-import { useState } from "react"
+import { FormEvent, useState } from "react"
+import { toast } from "react-toastify"
 
 import { BsDatabaseFillAdd } from "react-icons/bs"
 import { Button } from "@/components/button"
@@ -21,12 +22,20 @@ function Topico(props: { titulo: string, conteudo: string }) {
 }
 
 
-export default function Inicio({nome, setNome}:{nome:string, setNome:Function}) {
+export default function Inicio({nome, setNome, op, setOp}:{nome:string, setNome:Function, op:number, setOp:Function}) {
 
+	function proximo(event:FormEvent){
+		event.preventDefault();
+		console.log(nome);
+		setOp(1);
+	}
 
 
     return (
 		<>
+
+		<Head><title>NuvSynth</title></Head>
+
         <div className={sty2.topicos}>
 			<Topico
 				titulo="Conjunto de dados"
@@ -44,7 +53,7 @@ export default function Inicio({nome, setNome}:{nome:string, setNome:Function}) 
 				/>
 		</div>
 		
-		<form className={sty2.formulario}>
+		<form className={sty2.formulario} onSubmit={proximo} >
 
 			<div className={sty2.infosEntrada}>
 				<BsDatabaseFillAdd className={sty2.icon} />
@@ -58,18 +67,13 @@ export default function Inicio({nome, setNome}:{nome:string, setNome:Function}) 
 						placeholder="Nome do dataset"
 						value={nome || ''}
 						onChange={(e) => setNome(e.target.value)}
+						required={true}
 					/>
 				</div>
 			</div>
 
 			<div className={sty2.botoes}>
-				<Button type="submit" onClick={(e) => {
-					e.preventDefault()
-					console.log(nome)
-				}}
-				> {'>'} Próximo 
-				</Button>
-
+				<Button type="submit" > {'>'} Próximo </Button>
 			</div>
 
 		</form>

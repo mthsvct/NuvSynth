@@ -9,20 +9,19 @@ import Inicio from './home'
 import Logo from '@/components/logo'
 import { useState } from 'react'
 import Provedores from './provedores'
+import Classes from './classes'
 
 
 const inter = Inter({ subsets: ['latin'] })
 
-function Titulo({op}: {op: number}){ return ["NuvSynth", "Provedores", "Outros"][op] }
+function Titulo({op}: {op: number}){ return ["NuvSynth", "Provedores", "Classes", "Gerar", "Download"][op] }
 
 
 export default function Home() {
 
-	const [nome, setNome] = useState('')
-	const [op, setOp] = useState(0)
-	const [qntPrvs, setQntPrvs] = useState(1)
-
-	console.log(nome);
+	const [nome, setNome] = useState('');
+	const [op, setOp] = useState(0);
+	const [qntPrvs, setQntPrvs] = useState(1);
 
 
 	return (
@@ -36,17 +35,16 @@ export default function Home() {
 					</div>
 					
 					<div className={styles.corpo}>
-						{
-							op == 0 ? 
-								<Inicio nome={nome} setNome={setNome}/>
+						{ 	op == 0 ? <Inicio nome={nome} setNome={setNome} op={op} setOp={setOp}/>
 							: 
-								op == 1 ? <Provedores qntPrvs={qntPrvs} setQntPrvs={setQntPrvs} />
+							op == 1 ? <Provedores qntPrvs={qntPrvs} setQntPrvs={setQntPrvs} op={op} setOp={setOp}/>
 							: 
-								<h1>Outros</h1>
+							op == 2 ? <Classes op={op} setOp={setOp}/>
+							:
+							<h1>Outros</h1>
 						}	
 					</div>
 				</div>
-            
 			</main>
 			<Footer />
 		</>

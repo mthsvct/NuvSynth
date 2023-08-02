@@ -158,9 +158,7 @@ class Classe(Limites):
 
         for i in self.casais:
             # Crio dois serviços a partir dos atributos dos serviços do casal. Vou alternando os atributos de cada serviço para efetuar o cruzamento.
-            # print("---------:> i[0] e i[1]", i[0], i[1])
-
-            
+                        
             nv1 = Servico(
                 name=f"Service-{self.categoria}",
                 cpu= self.servicos[i[0]].cpu,
