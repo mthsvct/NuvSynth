@@ -22,6 +22,41 @@ export default function Home() {
 	const [nome, setNome] = useState('');
 	const [op, setOp] = useState(0);
 	const [qntPrvs, setQntPrvs] = useState(1);
+	const [classes, setClasses] = useState([]);
+
+	const cls = [
+        'Computacao', 
+        'Armazenamento',
+        'Memoria', 
+        'AI + Machine Learning',
+        'Segurança', 
+        'Análise de Dados e Estatíticas',
+        'Internet das Coisas', 
+        'Redes',
+        'Big Data', 
+        'Mídia'
+    ]
+
+    const cpus = [
+        'Intel Core 3', 
+        'Intel Core 5', 
+        'Intel Core 7', 
+        'Intel Core 9', 
+        'AMD Ryzen 5', 
+        'AMD Ryzen 7', 
+        'AMD Ryzen 9', 
+        'Qualcomm Snapdragon', 
+        'Apple A14 Bionic', 
+        'Apple M1', 
+        'AMD Threadripper',
+        'IBM POWER9' 
+    ]
+
+    const rams: number[] = []
+    for (let x = 1; x <= 9; x++) {
+        rams.push(Math.pow(2, x));
+    }
+
 
 
 	return (
@@ -39,7 +74,15 @@ export default function Home() {
 							: 
 							op == 1 ? <Provedores qntPrvs={qntPrvs} setQntPrvs={setQntPrvs} op={op} setOp={setOp}/>
 							: 
-							op == 2 ? <Classes op={op} setOp={setOp}/>
+							op == 2 ? <Classes 
+											op={op} 
+											setOp={setOp}
+											cls={cls}
+											cpus={cpus}
+											rams={rams}
+											classes={classes}
+											setClasses={setClasses}
+											/>
 							:
 							<h1>Outros</h1>
 						}	

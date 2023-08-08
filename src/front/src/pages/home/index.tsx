@@ -30,7 +30,6 @@ export default function Inicio({nome, setNome, op, setOp}:{nome:string, setNome:
 		setOp(1);
 	}
 
-
     return (
 		<>
 
@@ -53,7 +52,7 @@ export default function Inicio({nome, setNome, op, setOp}:{nome:string, setNome:
 				/>
 		</div>
 		
-		<form className={sty2.formulario} onSubmit={proximo} >
+		<form className={sty2.formulario} onSubmit={proximo} autoComplete="off" >
 
 			<div className={sty2.infosEntrada}>
 				<BsDatabaseFillAdd className={sty2.icon} />

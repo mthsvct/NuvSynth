@@ -5,43 +5,44 @@ import { CiSettings } from "react-icons/ci";
 import { Button, ProxVoltar } from "@/components/button";
 
 
-export default function Classes({op, setOp}: {op: number, setOp: Function}){
-
-    const cls = [
-        'Computacao', 
-        'Armazenamento',
-        'Memoria', 
-        'AI + Machine Learning',
-        'Segurança', 
-        'Análise de Dados e Estatíticas',
-        'Internet das Coisas', 
-        'Redes',
-        'Big Data', 
-        'Mídia'
-    ]
-
-    const clsSel = []
+interface ClassesProps {
+    op: number,
+    setOp: Function,
+    cls: string[],
+    cpus: string[],
+    rams: number[],
+    classes: any[],
+    setClasses: Function
+}
 
 
-    function addClasse(indice:number){
+export default function Classes({op, setOp, cls, cpus, rams, classes, setClasses}: ClassesProps){
 
-        // alert(clsSel.length);
+
+
+    function addClasse(index: number){
+
+        // console.log(cls[index]);
+
         let novo = {
-			"categoria": indice,
-			"cpus": [8, 3, 7],
-			"ram": [0,1,2,3],
+			"categoria": cls[index],
+			"cpus": cpus.map((_, index) => index),
+			"rams": rams.map((_, index) => index),
 			"hd": {
-				"min": 66, 
-				"max": 961
+				"min": 1, 
+				"max": 1000
 			},
-			"disponibilidade": 35.36,
-			"tempoResposta": 1.0,
-			"custo": 679.14
+			"disponibilidade": 80.0,
+			"tempoResposta": 1,
+			"custo": 159.9
 		}
 
+        setClasses([...classes, novo]);
 
     }
 
+
+    console.log(classes);
 
     return (
         <>
@@ -55,8 +56,8 @@ export default function Classes({op, setOp}: {op: number, setOp: Function}){
                     {
                         cls.map((classe, index) => {
                             return (
-                                <div className={styles.check}>
-                                    <Input className={styles.customize} type="checkbox" name={classe} id={classe} />
+                                <div className={styles.check} key={index}>
+                                    <Input onChange={() => addClasse(index)} className={styles.customize} type="checkbox" name={classe} id={classe} />
                                     <label htmlFor={classe}>{classe}</label>
                                     <div>
                                         <CiSettings  />
@@ -67,7 +68,9 @@ export default function Classes({op, setOp}: {op: number, setOp: Function}){
                     }
                 </div>
                 
-                <div className={styles.botoes}><ProxVoltar op={op} setOp={setOp} /></div>
+                <div className={styles.botoes}>
+                    <ProxVoltar op={op} setOp={setOp} />
+                </div>
                 
 
             </form>
