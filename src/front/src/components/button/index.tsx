@@ -29,7 +29,9 @@ export function ProxVoltar({op, setOp}:{op: number, setOp: Function}){
     return (
         <div className={styles.botoes}>
             <Button onClick={() => {setOp(op - 1)}} > Voltar {'<'} </Button>
-            <Button onClick={() => {setOp(op + 1)}} > {'>'} Próximo </Button>
+            <Button type="submit" > Próximo {'>'} </Button>
+            {/*  */}
+            {/* <Button onClick={() => {setOp(op + 1)}} > {'>'} Próximo </Button> */}
         </div>
     )
 }

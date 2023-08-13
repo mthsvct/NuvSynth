@@ -21,14 +21,16 @@ function Topico(props: { titulo: string, conteudo: string }) {
 	)
 }
 
+export function proximo(event:FormEvent, op:number, setOp:Function){
+	event.preventDefault();
+	console.log(op);
+	setOp(op + 1);
+}
+
 
 export default function Inicio({nome, setNome, op, setOp}:{nome:string, setNome:Function, op:number, setOp:Function}) {
 
-	function proximo(event:FormEvent){
-		event.preventDefault();
-		console.log(nome);
-		setOp(1);
-	}
+	
 
     return (
 		<>
@@ -52,14 +54,12 @@ export default function Inicio({nome, setNome, op, setOp}:{nome:string, setNome:
 				/>
 		</div>
 		
-		<form className={sty2.formulario} onSubmit={proximo} autoComplete="off" >
+		<form className={sty2.formulario} onSubmit={(event) => proximo(event, op, setOp)} autoComplete="off" >
 
 			<div className={sty2.infosEntrada}>
 				<BsDatabaseFillAdd className={sty2.icon} />
-
 				<div className={sty2.entrada}>
 					<label htmlFor="name"><h4>Mas antes, dê um nome ao novo dataset:</h4></label>
-
 					<Input
 						id="name"
 						type="text"
@@ -71,9 +71,7 @@ export default function Inicio({nome, setNome, op, setOp}:{nome:string, setNome:
 				</div>
 			</div>
 
-			<div className={sty2.botoes}>
-				<Button type="submit" > {'>'} Próximo </Button>
-			</div>
+			<div className={sty2.botoes}><Button type="submit"> {'>'} Próximo </Button></div>
 
 		</form>
 

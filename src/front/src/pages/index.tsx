@@ -10,11 +10,14 @@ import Logo from '@/components/logo'
 import { useState } from 'react'
 import Provedores from './provedores'
 import Classes from './classes'
+import Gerar from './gerar'
 
 
 const inter = Inter({ subsets: ['latin'] })
 
-function Titulo({op}: {op: number}){ return ["NuvSynth", "Provedores", "Classes", "Gerar", "Download"][op] }
+function Titulo({op}: {op: number}){ 
+	return ["NuvSynth", "Provedores", "Classes", "Gerar", "Download"][op] 
+}
 
 
 export default function Home() {
@@ -23,6 +26,7 @@ export default function Home() {
 	const [op, setOp] = useState(0);
 	const [qntPrvs, setQntPrvs] = useState(1);
 	const [classes, setClasses] = useState([]);
+	const [ind, setInd] = useState(-1);
 
 	const cls = [
         'Computacao', 
@@ -82,7 +86,20 @@ export default function Home() {
 											rams={rams}
 											classes={classes}
 											setClasses={setClasses}
+											ind={ind}
+											setInd={setInd}
 											/>
+							:
+							op == 3 ? <Gerar 
+											op={op} 
+											setOp={setOp}
+											cls={cls}
+											cpus={cpus}
+											rams={rams}
+											classes={classes}
+											setClasses={setClasses}
+											ind={ind}
+											setInd={setInd} />
 							:
 							<h1>Outros</h1>
 						}	

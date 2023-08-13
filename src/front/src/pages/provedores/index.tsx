@@ -4,6 +4,7 @@ import Head from "next/head";
 import { Input } from "@/components/input";
 import styles from "./Provedor.module.scss"
 import { Button, ProxVoltar } from "@/components/button";
+import { proximo } from "../home";
 
 
 
@@ -14,7 +15,11 @@ export default function Provedores({qntPrvs, setQntPrvs, op, setOp}:{qntPrvs: nu
                 <title>Provedores</title>
             </Head>
 
-            <form className={styles.formulario}>
+            <form onSubmit={(event) => proximo(
+                event, 
+                op, 
+                setOp
+            )} className={styles.formulario}>
                 
                 <label htmlFor="qntPrvs">
                     Primeiro, defina a quantidade de provedores a serem gerados no simulador:

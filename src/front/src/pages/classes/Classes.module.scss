@@ -54,13 +54,7 @@
             padding-bottom: 15px;
             justify-content: space-between;
             align-items: center;
-    
             transition: all 0.2s ease-in-out;
-    
-            // &:hover {
-            //     margin-top: 5px;
-            //     margin-bottom: 5px;
-            // }
     
             &, & label, & input[type=checkbox] {
                 cursor: pointer;
@@ -68,6 +62,8 @@
     
             label {
                 font-size: 20pt;
+                // border: var(--b1);
+                width: 100%;
             }
     
             input[type=checkbox] {
@@ -112,10 +108,192 @@
                 background-size: 140%;
                 // border: none;
             }
+
+            .settings {
+                justify-content: center;
+                align-items: center;
+            }
       
         }
 
     }
+}
+
+
+.editar {
+
+    // border: var(--b1);
+    justify-content: center;
+    align-items: center;
+
+    &, 
+    .titulo, 
+    .botoes, 
+    .formulario, 
+    .qntServs,
+    .rams,
+    .hd,
+    .cpus,
+    .disp,
+    .tempoRes,
+    .custo {
+        display: flex;
+    }
+    
+    &, 
+    .titulo, 
+    .formulario, 
+    .qntServs,
+    .rams,
+    .cpus,
+    .hd,
+    .disp,
+    .tempoRes,
+    .custo {
+        flex-direction: column;
+    }
+
+    .qntServs,
+    .rams,
+    .hd,
+    .cpus,
+    .disp,
+    .tempoRes,
+    .custo {
+        margin-top: 20px;
+        margin-bottom: 20px;
+        width: 50%;
+
+    }
+
+    & {
+        width: 100%;
+    }
+
+    .hd {
+
+        // border: var(--b1);
+
+        .ate {
+            width: 8%;
+            // border: var(--b1);
+            justify-content: center;
+            align-items: center;
+            display: flex;
+        }
+        
+        .minMax {
+            display: flex;
+            flex-wrap: wrap;
+            width: 100%;
+            justify-content: center;
+            align-items: center;
+            // border: var(--b2);
+
+            .min {
+                // border: var(--b3);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 45%;
+
+                input{
+                    margin-right: 5px;
+                    text-align: center;
+                }
+            }
+        }
+
+        
+    }
+
+
+    .cpus, .rams {
+
+        // border: var(--b3);
+
+        .ops {
+            flex-wrap: wrap;
+            // border: var(--b1);
+            width: 100%;
+            display: flex;
+
+            .check {
+                // border: var(--b2);
+                width: 50%;
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+    
+                padding-top: 5px;
+                padding-bottom: 5px;
+    
+                label{
+                    font-size: 18pt;
+                    width: 100%;
+                }
+    
+                input[type=checkbox] {
+                    display: none;
+                }
+        
+    
+                input[type=checkbox] + label::before {
+                    content: '';
+                    width: 40px;
+                    height: 40px;
+                    border-radius: 0px;
+                    background-color: var(--blue);
+                    border: var(--b1);
+                    display: inline-block;
+                    vertical-align: middle;
+                    margin-right: 20px;
+                    margin-left: 10px;
+                    
+                }
+        
+                input[type=checkbox]:checked + label::before {
+                    background-color: var(--white);
+                    // background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 50 50' width='100px' height='100px'%3E%3Cpath d='M 11 4 C 7.101563 4 4 7.101563 4 11 L 4 39 C 4 42.898438 7.101563 46 11 46 L 39 46 C 42.898438 46 46 42.898438 46 39 L 46 15 L 44 17.3125 L 44 39 C 44 41.800781 41.800781 44 39 44 L 11 44 C 8.199219 44 6 41.800781 6 39 L 6 11 C 6 8.199219 8.199219 6 11 6 L 37.40625 6 L 39 4 Z M 43.25 7.75 L 23.90625 30.5625 L 15.78125 22.96875 L 14.40625 24.4375 L 23.3125 32.71875 L 24.09375 33.4375 L 24.75 32.65625 L 44.75 9.03125 Z'/%3E%3C/svg%3E");
+                    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='0,0,256,256' width='100px' height='100px' fill-rule='nonzero'%3E%3Cg fill='%23305d7a' fill-rule='nonzero' stroke='none' stroke-width='1' stroke-linecap='butt' stroke-linejoin='miter' stroke-miterlimit='10' stroke-dasharray='' stroke-dashoffset='0' font-family='none' font-weight='none' font-size='none' text-anchor='none' style='mix-blend-mode: normal'%3E%3Cg transform='scale(5.12,5.12)'%3E%3Cpath d='M11,4c-3.89844,0 -7,3.10156 -7,7v28c0,3.89844 3.10156,7 7,7h28c3.89844,0 7,-3.10156 7,-7v-24l-2,2.3125v21.6875c0,2.80078 -2.19922,5 -5,5h-28c-2.80078,0 -5,-2.19922 -5,-5v-28c0,-2.80078 2.19922,-5 5,-5h26.40625l1.59375,-2zM43.25,7.75l-19.34375,22.8125l-8.125,-7.59375l-1.375,1.46875l8.90625,8.28125l0.78125,0.71875l0.65625,-0.78125l20,-23.625z'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    background-size: 140%;
+                }
+            }
+        }
+
+
+    }
+    
+
+    .titulo {
+        width: 50%;
+        justify-content: flex-start;
+
+        span {
+            font-size: 15pt;
+        }
+
+        h1 {
+            font-size: 40pt;
+            font-weight: 300;
+        }
+    }
+
+
+    .botoes {
+        
+        margin-top: 100px;
+        margin-bottom: 100px;
+
+        button {
+            margin-right: 15px;
+        }
+    }
+
 
     
+
+
 }
