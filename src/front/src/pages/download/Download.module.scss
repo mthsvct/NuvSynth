@@ -1,11 +1,16 @@
 .conteudo {
     
     
-    padding-bottom: 150px;
+    padding-bottom: 100px;
     width: 90%;
     // border: var(--b1);
 
-    &, .pvr, .pvr .infos, .pvr .download, .completo, .separado {
+    span {
+        font-weight: 200;
+        font-size: 17pt;
+    }
+
+    &, .pvr, .pvr .infos, .pvr .download, .completo, .separado, .titulozinho {
         display: flex;
     }
 
@@ -13,20 +18,41 @@
         flex-wrap: wrap;
     }
 
-    &, .pvr .download, .completo, .separado {
+    &, .pvr, .pvr .download, .completo, .separado {
         justify-content: center;
         align-items: center;
     }
 
-    .completo, .separado {
+    .completo, .separado, .titulozinho {
         width: 80%;
     }
 
+
+    .completo, .separado {
+        margin-bottom: 50px;
+    }
+
+
     .completo {
-        border: var(--b1P);
-        margin-bottom: 30px;
+        // border: var(--b1P);
+        
         padding-top: 25px;
         padding-bottom: 25px;
+
+        .ajuste {
+            width: 50%;
+            // border: var(--b1);
+            display: flex;
+            flex-direction: column;
+            .download {
+                width: 90%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+
+        
     }
 
     .separado .pvr, .separado .pvr .infos, .completo {
@@ -91,14 +117,21 @@
         padding: 5px;
         border-radius: 5px;
         border: var(--b4);
-
-        
+        width: 100%;
 
         h1 {
             font-weight: 500;
             font-size: 1.3rem;
             color: var(--blue);
         }
+
+
+        svg {
+            // Mudar a cor
+            fill: var(--blue);
+            margin-right: 10px;
+        }
+
 
         &:hover {
             background-color: var(--blue);
@@ -107,6 +140,10 @@
 
             h1 {
                 color: var(--white);
+            }
+
+            svg {
+                fill: var(--white);
             }
         }
 
