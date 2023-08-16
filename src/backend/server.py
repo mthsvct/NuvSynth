@@ -5,10 +5,10 @@ from gerador import *
 from provedor import Provedor
 from classe import Classe
 from servico import Servico
-
+from time import sleep
 
 # Pra rodar:
-# unicorn server:app --reload
+# uvicorn server:app --reload
 
 
 app = FastAPI()

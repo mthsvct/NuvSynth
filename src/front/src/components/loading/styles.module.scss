@@ -1,0 +1,24 @@
+.caixa {
+
+    // border: var(--b1);
+
+    font-size: 35pt;
+    font-weight: bold;
+
+    svg {
+        animation: rodar 2s cubic-bezier(0.165, 0.84, 0.44, 1) infinite; 
+    }
+   
+
+}
+
+
+@keyframes rodar {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}

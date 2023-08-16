@@ -11,6 +11,8 @@ import { useState } from 'react'
 import Provedores from './provedores'
 import Classes from './classes'
 import Gerar from './gerar'
+import { PrvsProps } from './gerar'
+import Download from './download'
 
 
 const inter = Inter({ subsets: ['latin'] })
@@ -27,6 +29,7 @@ export default function Home() {
 	const [qntPrvs, setQntPrvs] = useState(1);
 	const [classes, setClasses] = useState([]);
 	const [ind, setInd] = useState(-1);
+	const [prvs, setPrvs] = useState<PrvsProps>(Object);
 
 	const cls = [
         'Computacao', 
@@ -91,15 +94,36 @@ export default function Home() {
 											/>
 							:
 							op == 3 ? <Gerar 
-											op={op} 
+											op={op}
 											setOp={setOp}
+											nome={nome}
+											setNome={setNome}
+											qntPrvs={qntPrvs}
+											setQntPrvs={setQntPrvs}
+											classes={classes}
+											setClasses={setClasses}
 											cls={cls}
 											cpus={cpus}
 											rams={rams}
+											pvrs={prvs}
+											setPrvs={setPrvs}
+											/>
+							:
+							op == 4 ? <Download 
+											op={op}
+											setOp={setOp}
+											nome={nome}
+											setNome={setNome}
+											qntPrvs={qntPrvs}
+											setQntPrvs={setQntPrvs}
 											classes={classes}
 											setClasses={setClasses}
-											ind={ind}
-											setInd={setInd} />
+											cls={cls}
+											cpus={cpus}
+											rams={rams}
+											pvrs={prvs}
+											setPrvs={setPrvs}
+											/>
 							:
 							<h1>Outros</h1>
 						}	

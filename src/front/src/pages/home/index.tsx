@@ -21,8 +21,10 @@ function Topico(props: { titulo: string, conteudo: string }) {
 	)
 }
 
-export function proximo(event:FormEvent, op:number, setOp:Function){
-	event.preventDefault();
+export function proximo(event:FormEvent | undefined, op:number, setOp:Function){
+	if(event){
+		event.preventDefault();
+	}
 	console.log(op);
 	setOp(op + 1);
 }

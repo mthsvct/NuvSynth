@@ -1,0 +1,31 @@
+.conteudo {
+    
+
+
+    &, .pvr {
+        display: flex;
+    }
+
+    & {
+        flex-wrap: wrap;
+        // justify-content: space-between;
+    }
+    
+
+
+    width: 100%;
+
+    .pvr {
+        flex-direction: column;
+    }
+
+
+    .pvr {
+        width: 30%;
+        border: var(--b1);
+        height: 150px;
+    }
+
+
+
+}

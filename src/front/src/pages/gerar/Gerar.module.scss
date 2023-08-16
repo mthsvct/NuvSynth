@@ -1,0 +1,21 @@
+.conteudo {
+
+    // border: var(--b1);
+    width: 100%;
+    flex-direction: column;
+
+    &, .carregando {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .carregando {
+        h2 {
+            margin-right: 10px;
+        }
+        
+    }
+
+
+}
