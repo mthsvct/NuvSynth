@@ -1,6 +1,6 @@
 .conteudo {
     
-
+    justify-content: center;
 
     &, .pvr {
         display: flex;
@@ -17,15 +17,53 @@
 
     .pvr {
         flex-direction: column;
+        margin: 5px;
+        padding: 15px;
     }
 
 
     .pvr {
-        width: 30%;
+        width: 25%;
         border: var(--b1);
-        height: 150px;
+        
+        .infos {
+            border: var(--b2);
+        }
+
+        .classes {
+            border: var(--b3);
+        }
+
+        
+        .download {
+            border: var(--b1);
+            cursor: pointer;
+            background-color: var(--white);
+    
+            transition: cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.3s;
+    
+            h1 {
+                color: var(--blue);
+                font-size: 1.5rem;
+            }
+    
+    
+            
+            &:hover {
+                background-color: var(--blue);
+                
+    
+                h1 {
+                    color: var(--white);
+                }
+            }
+    
+        }
+    
     }
 
+
+    
 
 
 }
