@@ -6,7 +6,7 @@ import { GetServerSideProps, NextPage } from 'next';
 import fs from 'fs';
 import path from 'path';
 
-const DownloadPage: NextPage<{ data: Record<string, any>, nameFile:string }> = ({ data, nameFile }) => {
+const DownloadPage: NextPage<{ data: any, nameFile:string }> = ({ data, nameFile }) => {
 	const handleDownload = () => {
 		const jsonData = JSON.stringify(data, null, 2);
 		const blob = new Blob([jsonData], { type: 'application/json' });
@@ -20,7 +20,7 @@ const DownloadPage: NextPage<{ data: Record<string, any>, nameFile:string }> = (
 
 	return (
 		<div className={styles.download} onClick={handleDownload}>
-			<h1>Download JSON Data</h1>
+			<h1>Download</h1>
 		</div>
 	);
 };
@@ -76,37 +76,31 @@ export default function Download(
 
 			<div className={styles.conteudo}>
 
-				{
-					pvrs?.prvs?.map(
-						(pvr, index) => {
-							return (
-								<div key={index} className={styles.pvr}>
-									<div className={styles.infos}>
-										<h1> {pvr.name} </h1>
-										<h4>Qnt. de Serviços: {calculaQntSer(pvr)}</h4>
-										<h4>Qnt. de Classes: {pvr.classes.length}</h4>
-										{/* <div className={styles.classes}>
-											{
-												pvr.classes.map(
-													(cls:any, index:number) => {
-														return(
-															<div  className={styles.classe}>
-																<h5>{cls.categoria}</h5>
-																<p></p>
-															</div>
-														)
-													}
-												)
-											}
-										</div> */}
+				<div className={styles.completo}>
+					<span>Download de todos os dados gerados</span>
+					<DownloadPage data={pvrs} nameFile={`${nome.replace(" ", "_")}.json`} />
+				</div>
+
+				<div className={styles.separado}>
+
+					{
+						pvrs?.prvs?.map(
+							(pvr, index) => {
+								return (
+									<div key={index} className={styles.pvr}>
+										<div className={styles.infos}>
+											<h1> {pvr.name.replace("_", " ")} </h1>
+											<span>Qnt. de Serviços: {calculaQntSer(pvr)}</span>
+											<span>Qnt. de Classes: {pvr.classes.length}</span>
+										</div>
+										<DownloadPage data={pvr} nameFile={`${nome.replace(" ", "_")}_${pvr.name}.json`} />
 									</div>
-									<DownloadPage data={pvr} nameFile={`${pvr.name}.json`} />
-								</div>
-							)
-						}
-							
-					)
-				}
+								)
+							}
+								
+						)
+					}
+				</div>
 
 			</div>
 		</>

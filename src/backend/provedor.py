@@ -8,7 +8,7 @@ class Provedor:
     def __init__(self):
         self.id = Provedor.total
         Provedor.total += 1
-        self.name = f"Provedor - {self.id}"
+        self.name = f"Provedor_{self.id}"
         self.classes = []
     
     def __str__(self):

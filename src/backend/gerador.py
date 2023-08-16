@@ -90,6 +90,10 @@ def run(clsSel:list, qntPrv:int=5, qntSer:int=10, um:bool=False):
         for i in prvs:
             for j in i.classes:
                 j.servicos.pop()
+    
+    for indice, prov in enumerate(prvs, start=1):
+        prov.id = indice
+        prov.name = f"Provedor_{indice}"
 
     return prvs
 

@@ -1,68 +1,116 @@
 .conteudo {
     
-    justify-content: center;
+    
+    padding-bottom: 150px;
+    width: 90%;
+    // border: var(--b1);
 
-    &, .pvr {
+    &, .pvr, .pvr .infos, .pvr .download, .completo, .separado {
         display: flex;
     }
 
-    & {
+    &, .separado {
         flex-wrap: wrap;
-        // justify-content: space-between;
     }
-    
 
+    &, .pvr .download, .completo, .separado {
+        justify-content: center;
+        align-items: center;
+    }
 
-    width: 100%;
+    .completo, .separado {
+        width: 80%;
+    }
 
-    .pvr {
+    .completo {
+        border: var(--b1P);
+        margin-bottom: 30px;
+        padding-top: 25px;
+        padding-bottom: 25px;
+    }
+
+    .separado .pvr, .separado .pvr .infos, .completo {
         flex-direction: column;
-        margin: 5px;
-        padding: 15px;
     }
 
 
-    .pvr {
-        width: 25%;
-        border: var(--b1);
-        
-        .infos {
-            border: var(--b2);
-        }
+    .separado {
 
-        .classes {
-            border: var(--b3);
-        }
-
-        
-        .download {
-            border: var(--b1);
-            cursor: pointer;
-            background-color: var(--white);
+        // border: var(--b1);
     
-            transition: cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.3s;
+        .pvr {
+            border: var(--b1P);
+            // width: 25%;
+            flex-grow: 1;
+            min-height: 150px;
+            padding-top: 50px;
+            padding-bottom: 50px;
+            padding-left:35px;
+            padding-right:35px;
+            margin: 0px;
+            // cursor: pointer;
     
-            h1 {
-                color: var(--blue);
-                font-size: 1.5rem;
+            background-color: var(--blue);
+            transition: ease-in-out 0.2s;
+            
+    
+            &:hover {
+                scale: 1.11;
+                box-shadow: 0px 0px 5px var(--opa75);
             }
     
-    
+            .infos {
+                width: 100%;
+                padding-bottom: 20px;
             
-            &:hover {
-                background-color: var(--blue);
-                
-    
                 h1 {
-                    color: var(--white);
+                    font-size: 1.5rem;
+                    margin-bottom: 15px;
+                }
+    
+                span {
+                    font-weight: 200;
+                    margin-bottom: 5px;
                 }
             }
     
+            
+            
+        
         }
-    
     }
 
 
+    
+
+    .download {
+        // border: var(--b2);
+        background-color: var(--white);
+        cursor: pointer;
+        transition: cubic-bezier(0.075, 0.82, 0.165, 1) 0.3s;
+        padding: 5px;
+        border-radius: 5px;
+        border: var(--b4);
+
+        
+
+        h1 {
+            font-weight: 500;
+            font-size: 1.3rem;
+            color: var(--blue);
+        }
+
+        &:hover {
+            background-color: var(--blue);
+            border: var(--b1);
+            scale: 1.02;
+
+            h1 {
+                color: var(--white);
+            }
+        }
+
+    }
     
 
 

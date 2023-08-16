@@ -6,6 +6,7 @@
     --b1: 1px solid var(--white);
     --b2: 1px solid red;
     --b3: 1px solid yellow;
+    --b4: 1px solid var(--blue);
 
 
     --opaMIN: rgba(241, 241, 241, 0.3);
@@ -13,6 +14,9 @@
     --opa50: rgba(241, 241, 241, 0.5);
     --opa60: rgba(241, 241, 241, 0.6);
     --opa75: rgba(241, 241, 241, 0.75);
+
+
+    --b1P: 0.3px solid var(--opaMIN);
 
 }
 
