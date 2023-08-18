@@ -387,6 +387,11 @@
   dependencies:
     "client-only" "0.0.1"
 
+"sweetalert2@^11.7.23":
+  "integrity" "sha512-zhc2Jc/coeUFPCM7LyVaUddbSz1Av9/EgQVXxZVPre8cwJrTZXCOEAboCT11StS3vaFTio74cumWustmNzDOEw=="
+  "resolved" "https://registry.npmjs.org/sweetalert2/-/sweetalert2-11.7.23.tgz"
+  "version" "11.7.23"
+
 "to-regex-range@^5.0.1":
   "integrity" "sha512-65P7iz6X5yEr1cwcgvQxbbIw7Uk3gOy5dIdtZ4rDveLqhrdJP+Li/Hx6tyK0NEb+2GCyneCMJiGqrADCSNk8sQ=="
   "resolved" "https://registry.npmjs.org/to-regex-range/-/to-regex-range-5.0.1.tgz"

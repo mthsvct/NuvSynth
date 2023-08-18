@@ -6,6 +6,8 @@ import Loading from '@/components/loading';
 import styles from './Gerar.module.scss'
 import { proximo } from '../home';
 
+import Swal from 'sweetalert2';
+
 export interface PrvsProps {
     prvs: any[] | undefined;
 }
@@ -66,8 +68,8 @@ export default function Gerar(
             setLoading(false);
 
             // Aguarde 3 segundos
-            setTimeout(() => { proximo(undefined, op, setOp) }, 3000);
-
+            // setTimeout(() => { proximo(undefined, op, setOp) }, 1000);
+            proximo(undefined, op, setOp)
 
         }
         ).catch(error => {

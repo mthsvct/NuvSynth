@@ -86,6 +86,7 @@ function SelecoesClasses({op, setOp, cls, cpus, rams, classes, setClasses, ind, 
             proximo(event, op, setOp)
         }} className={styles.formulario}>
 
+
             <div className={styles.entrada}>
                 {
                     cls.map((classe, index) => {

@@ -14,6 +14,7 @@ import Gerar from './gerar'
 import { PrvsProps } from './gerar'
 import Download from './download'
 
+import { toast } from 'react-toastify'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -64,6 +65,7 @@ export default function Home() {
         rams.push(Math.pow(2, x));
     }
 
+	
 
 
 	return (

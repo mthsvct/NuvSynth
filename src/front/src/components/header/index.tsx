@@ -26,7 +26,11 @@ export function Header({ op, setOp } : { op: number, setOp: Function }){
                                     //     :
                                     //         `${item.toLowerCase()}/`
                                     // } 
-                                    onClick={() => setOp(index)}
+                                    // onClick={() => {
+                                    //     if (index != 3){
+                                    //         setOp(index)
+                                    //     }
+                                    //     }}
                                     className={
                                         index === op ? 
                                             styles.activate 

@@ -48,5 +48,25 @@ main {
 }
 
 
+body::-webkit-scrollbar{
+	width: 0.3rem;
+	height: 0.2rem;
+	color: var(--white);
+}
+
+body::-webkit-scrollbar-track {
+	background: var(--blue);
+    // z-index: 9999;
+}
+
+body::-webkit-scrollbar-thumb {
+	// background-color: rgba($color: var(--white), $alpha: 0);   
+	border-radius: 5px; 
+}
+
+body::-webkit-scrollbar-thumb:hover {
+	background-color: var(--white);    
+}
+
 
 

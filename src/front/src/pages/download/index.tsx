@@ -9,6 +9,9 @@ import path from 'path';
 import { BsDownload } from "react-icons/bs";
 import { Button } from "@/components/button";
 
+import Swal from 'sweetalert2'
+import { toast } from "react-toastify";
+
 const DownloadPage: NextPage<{ data: any, nameFile:string }> = ({ data, nameFile }) => {
 	const handleDownload = () => {
 		const jsonData = JSON.stringify(data, null, 2);
@@ -111,7 +114,41 @@ export default function Download(
 					}
 				</div>
 
-				<Button>Voltar</Button>
+				<Button
+					onClick={
+						() => {
+							// if (
+							// 	confirm("Deseja voltar para a página inicial?")
+							// ) {
+							// 	setNome("");
+							// 	setQntPrvs(1);
+							// 	setClasses([]);
+							// 	setPrvs([]);
+							// 	setOp(0);
+							// }
+							Swal.fire({
+								title: 'Tem certeza que deseja voltar?',
+								text: "Seus dados serão perdidos!",
+								icon: 'warning',
+								showCancelButton: true,
+								confirmButtonColor: '#d33',
+								cancelButtonColor: '#3085d6',
+								confirmButtonText: 'Sim, tudo bem!',
+								cancelButtonText: 'Cancelar'
+							  }).then((result) => {
+								if (result.isConfirmed) {
+									setOp(0);
+									setNome("");
+									setQntPrvs(1);
+									setClasses([]);
+									setPrvs([]);
+								}
+							})
+							
+						}
+					}
+					
+				>Voltar</Button>
 
 			</div>
 
