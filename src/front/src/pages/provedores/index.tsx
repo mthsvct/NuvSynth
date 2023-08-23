@@ -30,7 +30,7 @@ export default function Provedores({qntPrvs, setQntPrvs, op, setOp}:{qntPrvs: nu
                         id="qntPrvs"
                         type="range"
                         min="1"
-                        max="25"
+                        max="50"
                         step="1"
                         value={qntPrvs}
                         onChange={(e) => {
