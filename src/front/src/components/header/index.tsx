@@ -1,7 +1,7 @@
 import Logo from '../logo'
 import styles from './styles.module.scss'
 
-export function Header({ op, setOp } : { op: number, setOp: Function }){
+export function Header({ op, setOp } : { op: number | any, setOp: Function | any }){
     const lista = ["Home", "Provedores", "Classes", "Gerar", "Download"]
 
 

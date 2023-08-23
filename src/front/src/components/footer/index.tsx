@@ -6,15 +6,12 @@ import styles from './Footer.module.scss';
 import Logo from "../logo";
 
 
-export function Footer(){
+export function Footer({ op, setOp } : { op: number, setOp: Function }){
 
     return (
-
         <footer className={styles.rodape}>
 
-            <div className={styles.logo}>
-                <Logo tamanho={2.7} />
-            </div>
+            <div className={styles.logo}><Logo tamanho={2.7} /></div>
 
             <div className={styles.icones}>
                 <div className={styles.icone}>
@@ -35,12 +32,6 @@ export function Footer(){
                     </a>
                 </div>                
             </div>
-
         </footer>
-
-
     )
-
-
-
 }

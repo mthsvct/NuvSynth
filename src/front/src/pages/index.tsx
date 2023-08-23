@@ -132,7 +132,7 @@ export default function Home() {
 					</div>
 				</div>
 			</main>
-			<Footer />
+			<Footer op={op} setOp={setOp} />
 		</>
 	)
 }
