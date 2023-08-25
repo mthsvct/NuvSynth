@@ -65,10 +65,11 @@ export default function Gerar(
         ).then(response => {
             // console.log(response.data);
             setPrvs(response.data);
+            setTimeout(() => { proximo(undefined, op, setOp) }, 1000);
             setLoading(false);
 
             // Aguarde 3 segundos
-            // setTimeout(() => { proximo(undefined, op, setOp) }, 1000);
+            // 
             proximo(undefined, op, setOp)
 
         }

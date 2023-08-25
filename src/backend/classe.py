@@ -74,13 +74,13 @@ class Classe(Limites):
         return porc
     
     # Compara o serviço com o modelo. Retorna True se for semelhante (porcentagem do novo serviço é maior ou igual a 80%).
-    def comparar(self, srv:Servico): return self.porcentagem(srv) >= self.taxaSemelhanca
+    def comparar(self, srv:Servico) -> bool: return self.porcentagem(srv) >= self.taxaSemelhanca
 
     # Retorna True se a classe tiver mais de N serviços semelhante ao modelo
-    def aptidao(self): return len( [x for x in self.servicos if self.comparar(x) ] )+1 > self.Naptidao
+    def aptidao(self) -> bool: return len( [x for x in self.servicos if self.comparar(x) ] )+1 > self.Naptidao
 
     # Fazer o processo de geração com base no algoritmo genético. Onde serão gerados os serviços
-    def gerar(self): 
+    def gerar(self) -> None: 
         # Inicia a população:
         self.servicos = sorted([ self.newSrv(x) for x in range(self.qntSrvs) ], key=lambda x: x.taxa, reverse=True)
 
@@ -118,7 +118,7 @@ class Classe(Limites):
         
             
 
-    def montaRanking(self):
+    def montaRanking(self) -> list:
         # Monta um ranking baseados nas taxas dos serviços. Onde o primeiro serviço é o que tem a maior taxa.
         p = [50, 30, 10, 5, 1, 1, 1, 1, 1]
         
