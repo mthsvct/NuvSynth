@@ -172,7 +172,7 @@ function EditaCls({op, setOp, cls, cpus, rams, classes, setClasses, ind, setInd}
                         id="qntServs" 
                         value={clCopy.qntServs} 
                         min={1}
-                        max={25}
+                        max={50}
                         onChange={
                             (event) => {
                                 setClCopy(
