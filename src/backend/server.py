@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
+import uvicorn
 from gerador import *
 from provedor import Provedor
 from classe import Classe
@@ -70,3 +71,5 @@ async def gerar(dados:NovoData=None):
         return {"message": "Hello World - ELSE", "dados": dados}
 
 
+if __name__ == "__main__":
+    uvicorn.run(app, host="0.0.0.0", port=8080)
